@@ -1,10 +1,11 @@
+// ts configuration for js compilation
 {
   "compilerOptions": {
-    "outDir": "dist/js",
-    "target": "ES6",
-    "noEmitOnError": true,
+    "outDir": "dist/js", // where .ts files will be compiled to .js
+    "target": "ES6", // base language
+    "noEmitOnError": true, // does not compile when have any ts error
   },
   "include": [
-    "app/**/*"
+    "app/**/*" // where ts will be placed
   ]
 }
