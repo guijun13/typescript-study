@@ -15,8 +15,17 @@ export class Negociacao {
     private _valor: number
   ){}
 
+  // pode-se, em vez de private, usar:
+    // constructor(
+    //   public readonly data: Date,
+    //   public readonly quantidade: number,
+    //   public readonly valor: number,
+    // )
+  // nao necessitando dos getters
+
   get data(): Date {
-    return this._data;
+    const data = new Date(this._data.getTime());
+    return data;
   }
 
   get quantidade(): number {
