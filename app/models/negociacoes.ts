@@ -7,7 +7,7 @@ export class Negociacoes{
     this.negociacoes.push(negociacao);
   }
 
-  listaNegociacoes(): Array<Negociacao>{
+  listaNegociacoes(): ReadonlyArray<Negociacao>{ // dont allow edit array functions (e.g. pop())
     return this.negociacoes;
   }
 }
