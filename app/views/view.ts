@@ -12,7 +12,7 @@ export abstract class View<T>{ // tipo "generics", é definido nas classes filha
                                                 // utilizem o metodo 'template' nelas
                                                 // com protected, somente o pai e as filhas podem usar o metodo
 
-  update(model: T): void{
+  public update(model: T): void{
     const template = this.template(model);
     this.elemento.innerHTML = template;
   }
