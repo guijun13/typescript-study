@@ -2,7 +2,7 @@ import { Negociacoes } from "../models/negociacoes.js";
 import { View } from "./view.js";
 
 export class NegociacoesView extends View<Negociacoes> { // passando tipo Negociacoes para a View (generics)
-  template(model: Negociacoes): string{ // declara a template da view
+  protected template(model: Negociacoes): string{ // declara a template da view
     return `
       <table class="table table-hover table-bordered">
         <thdead>
