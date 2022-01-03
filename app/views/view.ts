@@ -1,4 +1,6 @@
-export class View<T>{ // tipo "generics", é definido nas classes filhas
+// classe view abstrata -> nao pode criar uma instacia diretamente dela,
+// somente se um filho herda uma instancia dela
+export abstract class View<T>{ // tipo "generics", é definido nas classes filhas
   
   protected elemento: HTMLElement;
 
@@ -6,9 +8,8 @@ export class View<T>{ // tipo "generics", é definido nas classes filhas
     this.elemento = document.querySelector(seletor);
   }
 
-  template(model: T): string{
-    throw Error('Classe filha precisa implementar o metodo template!');
-  }
+  abstract template(model: T): string; // com abstract, obriga que as classes filhas
+                                       // utilizem o metodo 'template' nelas
 
   update(model: T): void{
     const template = this.template(model);
