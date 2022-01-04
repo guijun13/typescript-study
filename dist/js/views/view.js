@@ -5,6 +5,7 @@ export class View {
         this.elemento = document.querySelector(seletor);
     }
     // utilizem o metodo 'template' nelas
+    // com protected, somente o pai e as filhas podem usar o metodo
     update(model) {
         const template = this.template(model);
         this.elemento.innerHTML = template;
