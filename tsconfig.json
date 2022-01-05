@@ -6,6 +6,7 @@
     "noEmitOnError": true, // does not compile when have any ts error
     "noImplicitAny": true, // does not allow 'any' type in ts code
     "removeComments": true, // remove comments when code is transformed from ts to js
+    "strictNullChecks": true, // does not allow implicit null types
   },
   "include": [
     "app/**/*" // where ts will be placed
