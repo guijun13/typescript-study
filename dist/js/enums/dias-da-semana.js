@@ -1,4 +1,3 @@
-// Enum = valores constantes com o index de cada elemento
 export var DiasDaSemana;
 (function (DiasDaSemana) {
     DiasDaSemana[DiasDaSemana["DOMINGO"] = 0] = "DOMINGO";
