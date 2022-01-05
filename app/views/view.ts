@@ -6,7 +6,12 @@ export abstract class View<T>{ // tipo "generics", é definido nas classes filha
   private escapar: boolean = false;
 
   constructor(seletor: string, escapar?: boolean){ // com '?', o parametro 'escapar' é opcional
-    this.elemento = document.querySelector(seletor);
+    const elemento = document.querySelector(seletor);
+    if(elemento){
+      this.elemento = elemento as HTMLElement;
+    } else {
+      throw Error(`Seletor ${seletor} nao existe no DOM`);
+    }
     if(escapar){ // if escapar == true
       this.escapar = escapar;
     }
