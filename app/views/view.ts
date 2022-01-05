@@ -3,9 +3,13 @@
 export abstract class View<T>{ // tipo "generics", é definido nas classes filhas
   
   protected elemento: HTMLElement;
+  private escapar: boolean = false;
 
-  constructor(seletor: string){
+  constructor(seletor: string, escapar?: boolean){ // com '?', o parametro 'escapar' é opcional
     this.elemento = document.querySelector(seletor);
+    if(escapar){ // if escapar == true
+      this.escapar = escapar;
+    }
   }
 
   protected abstract template(model: T): string; // com abstract, obriga que as classes filhas
@@ -13,7 +17,10 @@ export abstract class View<T>{ // tipo "generics", é definido nas classes filha
                                                 // com protected, somente o pai e as filhas podem usar o metodo
 
   public update(model: T): void{
-    const template = this.template(model);
+    let template = this.template(model);
+    if(this.escapar){
+      template = template.replace(/<script>[\s\S]*?<script>/, '');
+    }
     this.elemento.innerHTML = template;
   }
 }
