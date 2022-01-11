@@ -1,7 +1,7 @@
 // ts configuration for js compilation
 {
   "compilerOptions": {
-    "outDir": "dist/js", // where .ts files will be compiled to .js
+    "outDir": "app/dist/js", // where .ts files will be compiled to .js
     "target": "ES6", // base language
     "noEmitOnError": true, // does not compile when have any ts error
     "noImplicitAny": true, // does not allow 'any' type in ts code
