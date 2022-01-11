@@ -7,8 +7,9 @@
     "noImplicitAny": true, // does not allow 'any' type in ts code
     "removeComments": true, // remove comments when code is transformed from ts to js
     "strictNullChecks": true, // does not allow implicit null types
+    "experimentalDecorators": true, // enables decorators
   },
   "include": [
-    "app/**/*" // where ts will be placed
+    "app/src/**/*" // where ts will be placed
   ]
 }
