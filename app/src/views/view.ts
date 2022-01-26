@@ -25,7 +25,7 @@ export abstract class View<T>{ // tipo "generics", é definido nas classes filha
                                                 // utilizem o metodo 'template' nelas
                                                 // com protected, somente o pai e as filhas podem usar o metodo
 
-  @inspect() // executa esse primeiro
+  @inspect // executa esse primeiro
   @logarTempoDeExecucao(true) // depois esse
   public update(model: T): void{
     let template = this.template(model);
