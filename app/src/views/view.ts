@@ -1,8 +1,4 @@
 // classe view abstrata -> nao pode criar uma instacia diretamente dela,
-
-import { inspect } from "../decorators/inspect.js";
-import { logarTempoDeExecucao } from "../decorators/logar-tempo-de-execucao.js";
-
 // somente se um filho herda uma instancia dela
 export abstract class View<T>{ // tipo "generics", é definido nas classes filhas
   
@@ -21,8 +17,6 @@ export abstract class View<T>{ // tipo "generics", é definido nas classes filha
                                                 // utilizem o metodo 'template' nelas
                                                 // com protected, somente o pai e as filhas podem usar o metodo
 
-  @inspect // executa esse primeiro
-  @logarTempoDeExecucao(true) // depois esse
   public update(model: T): void{
     let template = this.template(model);
     this.elemento.innerHTML = template;
