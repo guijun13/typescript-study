@@ -1,3 +1,4 @@
+import { domInjector } from "../decorators/dom-injector.js";
 import { inspect } from "../decorators/inspect.js";
 import { logarTempoDeExecucao } from "../decorators/logar-tempo-de-execucao.js";
 import { DiasDaSemana } from "../enums/dias-da-semana.js";
@@ -7,17 +8,25 @@ import { MensagemView } from "../views/mensagem-view.js";
 import { NegociacoesView } from "../views/negociacoes-view.js";
 
 export class NegociacaoController{
+
+  @domInjector('#data')
   private inputData: HTMLInputElement;
+
+  @domInjector('#quantidade')
   private inputQuantidade: HTMLInputElement;
+
+  @domInjector('#valor')
   private inputValor: HTMLInputElement;
+
   private negociacoes: Negociacoes =  new Negociacoes();
   private negociacoesView: NegociacoesView = new NegociacoesView('#negociacoesView');
   private mensagemView: MensagemView = new MensagemView('#mensagemView');
 
   constructor(){
-    this.inputData = document.querySelector('#data') as HTMLInputElement; // 'document.querySelector('#data')' must return is HTMLInputElement
-    this.inputQuantidade = <HTMLInputElement>document.querySelector('#quantidade');
-    this.inputValor = <HTMLInputElement>document.querySelector('#valor');
+    // nao é mais necessario por causa do decorator da propriedade acima
+    // this.inputData = document.querySelector('#data') as HTMLInputElement; // 'document.querySelector('#data')' must return is HTMLInputElement
+    // this.inputQuantidade = <HTMLInputElement>document.querySelector('#quantidade');
+    // this.inputValor = <HTMLInputElement>document.querySelector('#valor');
     this.negociacoesView.update(this.negociacoes);
   }
 
