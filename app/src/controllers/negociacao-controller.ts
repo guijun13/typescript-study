@@ -58,6 +58,13 @@ export class NegociacaoController{
   public importaDados(): void {
     this.negociacoesService.obterNegociacoes()
       .then(negociacoesDeHoje => {
+        return negociacoesDeHoje.filter(negociacaoDeHoje => {
+          return !this.negociacoes // nao pode ter negociacoes repetidas
+            .listaNegociacoes()
+            .some(negociacao => negociacao.ehIgual(negociacaoDeHoje));
+        });
+      })
+      .then(negociacoesDeHoje => {
         for(let negociacao of negociacoesDeHoje){
           this.negociacoes.adiciona(negociacao);
         }
